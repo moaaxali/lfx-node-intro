@@ -1,6 +1,9 @@
 'use strict'
 const { createServer } = require('http')
 
+const hostname = '127.0.0.1'
+const port = 3000
+
 const data = JSON.stringify([
   {
     id: 'A1',
@@ -28,4 +31,6 @@ const server = createServer((req, res) => {
   res.end(data)
 })
 
-server.listen(3000)
+server.listen(port, hostname, () => {
+  console.log(`Server running on http://${hostname}:${port}/`)
+})
